@@ -1,1 +1,126 @@
+<div class="container-fluid">
 <h2 class="panel panel-heading">Novo Agendamento</h2>
+<form method="post">
+    <div>
+        <label>Data e Hora:</label>
+    </div>
+    <div class="row">
+        <div class="container-fluid">
+            <div class="input-group">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false">
+                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                    </button>
+                    <ul class="dropdown-menu" ng-click="$event.preventDefault();$event.stopPropagation()">
+                        <div date-picker="start"
+                             max-view="month"
+                             min-view="minutes"
+                             class="ng-isolate-scope"
+                             ng-model="data"></div>
+                    </ul>
+                </div>
+                <input date-time
+                       format="DD-MM-YY HH:mm"
+                       ng-model="data"
+                       ng-readonly="true"
+                       class="form-control"
+                       ng-required="true"
+                       name="data">
+            </div>
+        </div>
+    </div>
+        <br>
+    <div class="row">
+        <div class="form-check">
+            <label class="form-check-label col-lg-2">VENTILADOR:</label>
+                <div class="col-lg-2">
+                    <input class="form-check-input"
+                           type="radio"
+                           name="radiusVent"
+                           ng-model="radioVentilador"
+                           value="L" checked>
+                           LIGAR
+                </div>
+                <div class="col-lg-2">
+                    <input class="form-check-input"
+                           type="radio"
+                           name="radiusVent"
+                           ng-model="radioVentilador"
+                           value="D">
+                           DELISGAR
+                </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="row">
+        <div class="form-check">
+            <label class="form-check-label col-lg-2">LUZ SALA:</label>
+            <div class="col-lg-2">
+                <input class="form-check-input"
+                       type="radio"
+                       name="radiusLuzSala"
+                       ng-model="radioLuzSala"
+                       value="L" checked>
+                LIGAR
+            </div>
+            <div class="col-lg-2">
+                <input class="form-check-input"
+                       type="radio"
+                       name="radiusLuzSala"
+                       ng-model="radioLuzSala"
+                       value="D">
+                DELISGAR
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="row">
+        <div class="form-check">
+            <label class="form-check-label col-lg-2">TELEVISOR:</label>
+            <div class="col-lg-2">
+                <input class="form-check-input"
+                       type="radio"
+                       name="radiusTelevisor"
+                       ng-model="radioTelevisor"
+                       value="L" checked>
+                LIGAR
+            </div>
+            <div class="col-lg-2">
+                <input class="form-check-input"
+                       type="radio"
+                       name="radiusTelevisor"
+                       ng-model="radioTelevisor"
+                       value="D">
+                DELISGAR
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="row">
+        <div class="form-check">
+            <label class="form-check-label col-lg-2">LUZ QUARTO:</label>
+            <div class="col-lg-2">
+                <input class="form-check-input"
+                       type="radio"
+                       name="radiusLuzQuarto"
+                       ng-model="radioLuzQuarto"
+                       value="L" checked>
+                LIGAR
+            </div>
+            <div class="col-lg-2">
+                <input class="form-check-input"
+                       type="radio"
+                       name="radiusLuzQuarto"
+                       ng-model="radioLuzQuarto"
+                       value="D">
+                DELISGAR
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <button type="submit" class="btn btn-success col-lg-5"> AGENDAR</button>
+</form>
+</div>
