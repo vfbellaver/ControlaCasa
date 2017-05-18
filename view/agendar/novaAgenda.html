@@ -24,7 +24,7 @@
                 </div>
                 <input date-time
                        format="DD-MM-YY HH:mm"
-                       ng-model="data"
+                       ng-model="casa.data"
                        ng-readonly="true"
                        class="form-control"
                        ng-required="true"
@@ -48,7 +48,7 @@
                     <input class="form-check-input"
                            type="radio"
                            name="radiusVent"
-                           ng-model="radioVentilador"
+                           ng-model="casa.radioVentilador"
                            value="D">
                            DELISGAR
                 </div>
@@ -62,7 +62,7 @@
                 <input class="form-check-input"
                        type="radio"
                        name="radiusLuzSala"
-                       ng-model="radioLuzSala"
+                       ng-model="casa.radioLuzSala"
                        value="L" checked>
                 LIGAR
             </div>
@@ -70,7 +70,7 @@
                 <input class="form-check-input"
                        type="radio"
                        name="radiusLuzSala"
-                       ng-model="radioLuzSala"
+                       ng-model="casa.radioLuzSala"
                        value="D">
                 DELISGAR
             </div>
@@ -84,7 +84,7 @@
                 <input class="form-check-input"
                        type="radio"
                        name="radiusTelevisor"
-                       ng-model="radioTelevisor"
+                       ng-model="casa.radioTelevisor"
                        value="L" checked>
                 LIGAR
             </div>
@@ -92,7 +92,7 @@
                 <input class="form-check-input"
                        type="radio"
                        name="radiusTelevisor"
-                       ng-model="radioTelevisor"
+                       ng-model="casa.radioTelevisor"
                        value="D">
                 DELISGAR
             </div>
@@ -106,7 +106,7 @@
                 <input class="form-check-input"
                        type="radio"
                        name="radiusLuzQuarto"
-                       ng-model="radioLuzQuarto"
+                       ng-model="casa.radioLuzQuarto"
                        value="L" checked>
                 LIGAR
             </div>
@@ -114,13 +114,13 @@
                 <input class="form-check-input"
                        type="radio"
                        name="radiusLuzQuarto"
-                       ng-model="radioLuzQuarto"
+                       ng-model="casa.radioLuzQuarto"
                        value="D">
                 DELISGAR
             </div>
         </div>
     </div>
     <div class="divider"></div>
-    <button type="submit" class="btn btn-success col-lg-5"> AGENDAR</button>
+    <button type="submit" class="btn btn-success col-lg-5" ng-click="cadastrarAgenda(agenda)"> AGENDAR</button>
 </form>
 </div>

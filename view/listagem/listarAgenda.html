@@ -20,11 +20,16 @@
             <th>Apagar</th>
         </tr>
         </thead>
-        <tbody ng-repeat="list in listaDeAlunos" >
+        <tbody ng-repeat="dados in listaDeAlunos" >
         <tr>
-            <td>{{list.cpf}}</td>
-            <td>{{list.nome}}</td>
-            <td>{{list.email}}</td>
+            <td>{{dados.data}}</td>
+            <td>{{dados.hora}}</td>
+            <td>{{dados.ventilador}}</td>
+            <td>{{dados.sala}}</td>
+            <td>{{dados.tv}}</td>
+            <td>{{dados.quarto}}</td>
+            <td><button class="btn btn-info" ng-click="editAgenda(dados)">EDITAR</button></td>
+            <td><button class="btn btn-danger" ng-click="deleteAgenda(dados)">DELETAR</button></td>
         </tr>
         </tbody>
     </table>
