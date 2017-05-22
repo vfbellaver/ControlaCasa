@@ -7,9 +7,11 @@ angular.module("controlacasa").config(["$routeProvider", function ($routeProvide
     });
 
     $routeProvider.when("/listarAgenda",{
-        templateUrl:"view/listagem/listarAgenda.html"
+        templateUrl:"view/listagem/listarAgenda.html",
+        controller:"agendaController"
     });
     $routeProvider.when("/novaAgenda",{
-        templateUrl:"view/agendar/novaAgenda.html"
+        templateUrl:"view/agendar/novaAgenda.html",
+        controller:"agendaController"
     });
 }]);

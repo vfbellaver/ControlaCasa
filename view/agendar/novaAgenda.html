@@ -1,5 +1,5 @@
 <div class="container-fluid">
-<h2 class="panel panel-heading">Novo Agendamento</h2>
+<h2 class="panel panel-heading text-center">Novo Agendamento</h2>
 <form method="post">
     <div>
         <label>Data e Hora:</label>
@@ -19,7 +19,7 @@
                              max-view="month"
                              min-view="minutes"
                              class="ng-isolate-scope"
-                             ng-model="data"></div>
+                             ng-model="casa.data"></div>
                     </ul>
                 </div>
                 <input date-time
@@ -28,8 +28,13 @@
                        ng-readonly="true"
                        class="form-control"
                        ng-required="true"
-                       name="data">
+                       name="casa.data">
             </div>
+            <br>
+            <button class="btn btn-sm btn-primary" ng-click="imprimirDataEHorario(casa)">
+                <span class="glyphicon glyphicon-plus"></span>
+                Imprimir data e horário
+            </button>
         </div>
     </div>
         <br>
