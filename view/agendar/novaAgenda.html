@@ -23,12 +23,13 @@
                     </ul>
                 </div>
                 <input date-time
-                       format="DD-MM-YY HH:mm"
+                           format="DD-MM-YY HH:mm"
                        ng-model="casa.data"
                        ng-readonly="true"
                        class="form-control"
                        ng-required="true"
-                       name="casa.data">
+                       name="casa.data"
+                       disabled>
             </div>
             <br>
             <button class="btn btn-sm btn-primary" ng-click="imprimirDataEHorario(casa)">
