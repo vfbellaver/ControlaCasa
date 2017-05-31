@@ -2,15 +2,15 @@
  * Created by vfbeL on 17/05/2017.
  */
 
-angular.module("controlacasa").controller("agendaController",function ($scope) {
+angular.module("controlacasa").controller("agendaController",function ($scope,agendaAPIService) {
     $scope.listaDeAgendas = [];
 
     $scope.cadastrarAgenda = function (agenda) {
-        alunoAPIService.salvarAluno(agenda).then(function (dados) {
+        agendaAPIService.salvarAgenda(agenda).then(function (dados) {
             alert("Agenda salva com sucesso");
-            $location.url("/listarAlunos")
+            $location.url("/listarAgenda")
         },function (err) {
-            alert("Deu erro ao Agendar");
+            alert("Deu erro ao Agendar"+err);
         });
     }
     $scope.imprimirDataEHorario = function (d) {

@@ -6,7 +6,7 @@ angular.module("controlacasa").factory("agendaAPIService",function ($http) {
     var _salvarAgenda = function (dados) {
         return $http({
             method:"POST",
-            url:"",
+            url:"http://localhost:8084/WSRestControlaCasa/evento",
             data:dados
         });
     };
