@@ -14,7 +14,7 @@ angular.module("controlacasa").factory("agendaAPIService",function ($http) {
     var _listarAgenda = function () {
         return $http({
             method: "GET",
-            url:"",
+            url:"http://localhost:8084/WSRestControlaCasa/evento",
         });
     };
 

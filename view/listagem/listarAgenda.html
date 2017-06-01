@@ -7,27 +7,31 @@
 </div>
 <br>
 <div>
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered text-center">
         <thead>
-        <tr class="bg-info">
+        <tr class="bg-info text-center">
+            <th>Id</th>
             <th>Data</th>
             <th>Horário</th>
             <th>Ventilador</th>
             <th>Luz Sala</th>
             <th>TV</th>
             <th>Luz Quarto</th>
+            <th>Status Evento</th>
             <th>Editar</th>
             <th>Apagar</th>
         </tr>
         </thead>
-        <tbody ng-repeat="dados in listaDeAlunos" >
+        <tbody ng-repeat="dados in listaDeAgendas" >
         <tr>
-            <td>{{dados.data}}</td>
-            <td>{{dados.hora}}</td>
-            <td>{{dados.ventilador}}</td>
-            <td>{{dados.sala}}</td>
-            <td>{{dados.tv}}</td>
-            <td>{{dados.quarto}}</td>
+            <td>{{dados.idEvento}}</td>
+            <td>{{dados.dataHora|date:"dd/MM/yyyy"}}</td>
+            <td>{{dados.dataHora|date:"HH:mm"}}</td>
+            <td>{{(dados.ventilador?"Ligado":"Desligado")}}</td>
+            <td>{{(dados.luzSala?"Ligado":"Desligado")}}</td>
+            <td>{{(dados.tv?"Ligado":"Desligado")}}</td>
+            <td>{{(dados.luzQuarto?"Ligado":"Desligado")}}</td>
+            <td>{{(dados.status?"Processado":"Não Processado")}}</td>
             <td><button class="btn btn-info" ng-click="editAgenda(dados)">EDITAR</button></td>
             <td><button class="btn btn-danger" ng-click="deleteAgenda(dados)">DELETAR</button></td>
         </tr>

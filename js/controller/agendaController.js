@@ -27,6 +27,8 @@ angular.module("controlacasa").controller("agendaController",function ($scope,ag
         };
         agendaAPIService.listarAgenda().then(sucesso,erro);
     }
+
+    listarAgendas();
 });
 
 
