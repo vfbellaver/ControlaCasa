@@ -25,15 +25,15 @@
         <tbody ng-repeat="dados in listaDeAgendas" >
         <tr>
             <td>{{dados.idEvento}}</td>
-            <td>{{dados.dataHora|date:"dd/MM/yyyy"}}</td>
+            <td>{{dados.dataHora|date:"EEEE,  d 'de' MMMM y"}}</td>
             <td>{{dados.dataHora|date:"HH:mm"}}</td>
             <td>{{(dados.ventilador?"Ligado":"Desligado")}}</td>
             <td>{{(dados.luzSala?"Ligado":"Desligado")}}</td>
             <td>{{(dados.tv?"Ligado":"Desligado")}}</td>
             <td>{{(dados.luzQuarto?"Ligado":"Desligado")}}</td>
             <td>{{(dados.status?"Processado":"Não Processado")}}</td>
-            <td><button class="btn btn-info" ng-click="editAgenda(dados)">EDITAR</button></td>
-            <td><button class="btn btn-danger" ng-click="deleteAgenda(dados)">DELETAR</button></td>
+            <td><a href="#!novaAgenda" ng-click="editAgenda(dados)"> Editar  <span class="glyphicon glyphicon-pencil"></span></a> </td>
+            <td><a href="" ng-click="deleteAgenda(dados.idEvento)">Deletar  <span class="glyphicon glyphicon-remove"></span></a></td>
         </tr>
         </tbody>
     </table>
