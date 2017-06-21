@@ -10,8 +10,8 @@ angular.module("controlacasa").config(["$routeProvider", function ($routeProvide
         templateUrl:"view/listagem/listarAgenda.html",
         controller:"agendaController"
     });
-    $routeProvider.when("/novaAgenda",{
+    $routeProvider.when("/novaAgenda/:id",{
         templateUrl:"view/agendar/novaAgenda.html",
-        controller:"agendaController"
+        controller:"editaAgendaController"
     });
 }]);

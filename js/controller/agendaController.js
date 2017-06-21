@@ -2,47 +2,31 @@
  * Created by vfbeL on 17/05/2017.
  */
 
-angular.module("controlacasa").controller("agendaController",function ($scope,agendaAPIService,$location) {
+angular.module("controlacasa").controller("agendaController",function ($interval,$scope,agendaAPIService,$location) {
     $scope.listaDeAgendas = [];
-
-    $scope.cadastrarAgenda = function (agenda) {
-        if(agenda.id){
-            agendaAPIService.atualizarAgenda(agenda).then(function (dados) {
-                alert("Agenda atualizada com sucesso");
-                $location.url("/listarAgenda")
-            },function (err) {
-                alert("Deu erro ao atualizar"+err);
-            });
-        }else{
-            agendaAPIService.salvarAgenda(agenda).then(function (dados) {
-                alert("Agenda salva com sucesso");
-                $location.url("/listarAgenda")
-            },function (err) {
-                alert("Deu erro ao Agendar"+err);
-            });
-        }
-        $scope.agenda = {};
-    }
-
-    $scope.imprimirDataEHorario = function (d) {
-        alert(d.data)
-    }
-
+    $scope.salvou = false;
+    $scope.erroaosalvar = false;
     $scope.editAgenda = function (agenda) {
-        var copia = {}
-        for (chave in agenda){
-            copia[chave] = agenda[chave];
-        };
-        $scope.agenda=copia;
+        $location.url("/novaAgenda/"+agenda.idEvento)
     }
 
     $scope.deleteAgenda = function (id) {
         agendaAPIService.deletarAgenda(id).then(function (dados) {
-            alert("Evento deletado com sucesso");
-            listarAgendas();
+            $scope.mensagem = "Agenda delegada com sucesso!"
+            $scope.salvou = true;
+            $interval(function () {
+                $scope.salvou = false;
+                listarAgendas();
+            }, 4000,1);
+
             // $location.url("/listarAgenda")
         },function (err) {
-            alert("Deu erro ao Deletar"+err.status);
+            $scope.mensagem = "Erro ao deletar agenda!"
+            $scope.erroaosalvar = true;
+            $interval(function () {
+                $scope.erroaosalvar = false;
+                $location.url("/listarAgenda")
+            }, 4000,1);
         });
     }
 

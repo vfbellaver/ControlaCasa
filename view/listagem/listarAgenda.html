@@ -1,11 +1,12 @@
 <h2 class="panel panel-body">Lista de Agendamentos</h2>
 <div>
 <div>
-    <a href="#!novaAgenda">
+    <a href="#!novaAgenda/0">
         <button class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Novo Agendamento</button>
     </a>
 </div>
 <br>
+<div class="alert alert-success" ng-show="salvou">{{mensagem}}</div>
 <div>
     <table class="table table-bordered text-center">
         <thead>
@@ -32,7 +33,7 @@
             <td>{{(dados.tv | ligadesliga)}}</td>
             <td>{{(dados.luzQuarto | ligadesliga)}}</td>
             <td>{{(dados.status | statusEvento)}}</td>
-            <td><a href="#!novaAgenda" ng-click="editAgenda(dados)"> Editar  <span class="glyphicon glyphicon-pencil"></span></a> </td>
+            <td><a href="" ng-click="editAgenda(dados)"> Editar  <span class="glyphicon glyphicon-pencil"></span></a> </td>
             <td><a href="" ng-click="deleteAgenda(dados.idEvento)">Deletar  <span class="glyphicon glyphicon-remove"></span></a></td>
         </tr>
         </tbody>

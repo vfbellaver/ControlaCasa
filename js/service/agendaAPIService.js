@@ -18,6 +18,13 @@ angular.module("controlacasa").factory("agendaAPIService",function ($http) {
         });
     };
 
+    var _buscarEventoPorId = function (id) {
+        return $http({
+            method:"GET",
+            url:"http://localhost:8084/WSRestControlaCasa/evento/"+id,
+        });
+    };
+
     var _deletarEvento = function (id) {
         return $http({
             method:"DELETE",
@@ -36,6 +43,7 @@ angular.module("controlacasa").factory("agendaAPIService",function ($http) {
         listarAgenda: _listarAgenda,
         salvarAgenda: _salvarAgenda,
         deletarAgenda: _deletarEvento,
-        atualizarAgenda: _atualizarAgenda
+        atualizarAgenda: _atualizarAgenda,
+        buscarEventoPorid: _buscarEventoPorId
     }
 })

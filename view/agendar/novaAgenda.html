@@ -1,6 +1,8 @@
 <div class="container-fluid">
 <h2 class="panel panel-heading text-center">Novo Agendamento</h2>
-<form method="post">
+<div class="alert alert-success" ng-show="salvou">{{mensagem}}</div>
+<div class="alert alert-danger" ng-show="erroaosalvar">{{mensagem}}</div>
+<form>
     <div>
         <label>Data e Hora:</label>
     </div>
@@ -15,27 +17,22 @@
                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                     </button>
                     <ul class="dropdown-menu" ng-click="$event.preventDefault();$event.stopPropagation()">
-                        <div date-picker="start"
+                        <div date-picker
                              max-view="month"
                              min-view="minutes"
                              class="ng-isolate-scope"
-                             ng-model="agenda.dataHora"></div>
+                             ng-model="agenda.dataHora"
+                             ></div>
                     </ul>
                 </div>
                 <input date-time
-                           format="DD-MM-YY HH:mm"
+                       format="DD-MM-YY HH:mm"
                        ng-model="agenda.dataHora"
                        ng-readonly="true"
                        class="form-control"
                        ng-required="true"
-                       name="agenda.dataHora"
                        disabled>
             </div>
-            <br>
-            <button class="btn btn-sm btn-primary" ng-click="imprimirDataEHorario(agenda)">
-                <span class="glyphicon glyphicon-plus"></span>
-                Imprimir data e horário
-            </button>
         </div>
     </div>
         <br>
@@ -47,7 +44,8 @@
                            type="radio"
                            name="radiusVent"
                            ng-model="agenda.ventilador"
-                           value=true >
+                           ng-value="true"
+                           >
                            LIGAR
                 </div>
                 <div class="col-lg-2">
@@ -55,7 +53,8 @@
                            type="radio"
                            name="radiusVent"
                            ng-model="agenda.ventilador"
-                           value=false checked>
+                           ng-value="false"
+                           >
                            DELISGAR
                 </div>
         </div>
@@ -69,7 +68,8 @@
                        type="radio"
                        name="radiusLuzSala"
                        ng-model="agenda.luzSala"
-                       value=true checked>
+                       ng-value="true"
+                       >
                 LIGAR
             </div>
             <div class="col-lg-2">
@@ -77,7 +77,8 @@
                        type="radio"
                        name="radiusLuzSala"
                        ng-model="agenda.luzSala"
-                       value=false >
+                       ng-value="false"
+                       >
                 DELISGAR
             </div>
         </div>
@@ -91,7 +92,8 @@
                        type="radio"
                        name="radiusTelevisor"
                        ng-model="agenda.tv"
-                       value=true checked>
+                       ng-value="true"
+                       >
                 LIGAR
             </div>
             <div class="col-lg-2">
@@ -99,7 +101,8 @@
                        type="radio"
                        name="radiusTelevisor"
                        ng-model="agenda.tv"
-                       value=false >
+                       ng-value="false"
+                       >
                 DELISGAR
             </div>
         </div>
@@ -113,7 +116,8 @@
                        type="radio"
                        name="radiusLuzQuarto"
                        ng-model="agenda.luzQuarto"
-                       value=true checked>
+                       ng-value="true"
+                       >
                 LIGAR
             </div>
             <div class="col-lg-2">
@@ -121,12 +125,13 @@
                        type="radio"
                        name="radiusLuzQuarto"
                        ng-model="agenda.luzQuarto"
-                       value=false>
+                       ng-value="false"
+                    >
                 DELISGAR
             </div>
         </div>
     </div>
     <div class="divider"></div>
-    <button type="submit" class="btn btn-success col-lg-5" ng-click="cadastrarAgenda(agenda)"> AGENDAR</button>
+    <button class="btn btn-success col-lg-5" ng-click="cadastrarAgenda(agenda)"> AGENDAR</button>
 </form>
 </div>
